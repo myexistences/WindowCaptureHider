@@ -1,20 +1,54 @@
-# Window Hiding DLL
+# WindowCaptureHider
 
-## Overview
-This DLL is designed to hide all windows of a process from screen recording or streaming software when injected. It effectively makes the target process invisible to screen capture tools while keeping it running normally.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Build](https://img.shields.io/github/actions/workflow/status/<USER>/WindowCaptureHider/ci.yml?branch=main)](../../actions)
+[![Issues](https://img.shields.io/github/issues/<USER>/WindowCaptureHider)](../../issues)
 
-## Features
-- Hides all windows of the target process from being captured.
-- Works with most streaming and recording software.
-- Lightweight and efficient.
+Hide any top-level window from screen-capture software (OBS, Snipping Tool, Teams, Zoom, etc.).  
+Built as a *drop-in* DLL, **WindowCaptureHider** can be injected into an existing process, or loaded explicitly in your own application.
 
-## Usage
-1. Inject the DLL into the target process using any DLL injector.
-2. Once injected, all windows belonging to that process will be hidden from recordings.
-3. To restore visibility, unload the DLL or restart the application.
+---
 
-## Credit
-Project made by **"RANDOM CHEAT"**
+## Table of Contents
+1. [Key Features](#key-features)  
+2. [How It Works](#how-it-works)  
+3. [Quick Start](#quick-start)  
+4. [Personal Storage (Per-User Rules)](#personal-storage-per-user-rules)  
+5. [Building From Source](#building-from-source)  
+6. [Public API](#public-api)  
+7. [Security & Limitations](#security--limitations)  
+8. [Contributing](#contributing)  
+9. [Roadmap](#roadmap)  
+10. [License](#license)  
 
-## Disclaimer
-This project is for educational purposes only. The author is not responsible for any misuse.
+---
+
+## Key Features
+| Feature | Description |
+|---------|-------------|
+| **Universal capture-blocking** | Applies `WDA_EXCLUDEFROMCAPTURE` to every top-level window in the target process. |
+| **Self-healing loop** | A background thread re-enumerates windows every 1 s to catch newly-created windows and to clean up handles for destroyed ones. |
+| **Minimal footprint** | Pure Win32 API, < 150 LOC, no STL allocations except `std::unordered_set`. |
+| **Automatic start/stop** | Begins hiding on `DLL_PROCESS_ATTACH` and cleans up on `DLL_PROCESS_DETACH`; manual control also exposed. |
+| **Optional personal storage** | JSON config in `%LOCALAPPDATA%\WindowCaptureHider\config.json` lets each user whitelist/blacklist windows by title or class. |
+| **x86 & x64** | Builds and cross-compiles cleanly with MSVC, clang-cl, or MinGW-w64; tested in CI. |
+
+---
+
+## How It Works
+1. **Enumeration** – `EnumWindows` enumerates all top-level HWNDs.  
+2. **Capture Exclusion** – Each HWND receives `SetWindowDisplayAffinity(hwnd, WDA_EXCLUDEFROMCAPTURE)`.  
+3. **Tracking** – Hidden HWNDs are cached so they can be reset to `WDA_NONE` when destroyed.  
+4. **Loop** – A detached thread repeats step 1 every second until `StopHidingWindows` is called or the DLL is unloaded.  
+5. **Config Check (optional)** – Before hiding, the code consults *personal storage* rules to see if the window should be ignored.
+
+---
+
+## Quick Start
+### 1. Pre-built binary
+Grab the latest signed DLL from **[Releases](../../releases)** → `WindowCaptureHider.dll`.
+
+### 2. Inject or load it
+#### a) *DLL Injection* (any injector of your choice)
+```bash
+injector.exe --pid 1234 --dll WindowCaptureHider.dll
