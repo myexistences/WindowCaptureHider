@@ -79,7 +79,7 @@ HMODULE hLib = LoadLibrary("WindowCaptureHider.dll");
 ### Build Instructions
 
 ```bash
-git clone https://github.com/<your-username>/WindowCaptureHider.git
+git clone https://github.com/myexistences/WindowCaptureHider.git
 cd WindowCaptureHider
 cl /LD WindowCaptureHider.cpp /Fe:WindowCaptureHider.dll
 ```
