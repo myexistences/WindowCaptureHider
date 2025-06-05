@@ -1,8 +1,8 @@
 # WindowCaptureHider
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Build](https://img.shields.io/github/actions/workflow/status/<USER>/WindowCaptureHider/ci.yml?branch=main)](../../actions)
-[![Issues](https://img.shields.io/github/issues/<USER>/WindowCaptureHider)](../../issues)
+[![Build](https://img.shields.io/github/actions/workflow/status/myexistences/WindowCaptureHider/ci.yml?branch=main)](../../actions)
+[![Issues](https://img.shields.io/github/issues/myexistences/WindowCaptureHider)](../../issues)
 
 **WindowCaptureHider** is a lightweight Windows DLL that hides top-level application windows from screen-capturing tools such as OBS, Snipping Tool, Microsoft Teams, Zoom, and others.  
 It uses the Windows API `SetWindowDisplayAffinity` to block these windows from being captured or recorded.
