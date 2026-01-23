@@ -1,8 +1,12 @@
 # WindowCaptureHider
+<!--[![Build](https://img.shields.io/github/actions/workflow/status/myexistences/WindowCaptureHider/ci.yml?branch=main)](../../actions)
+![Views](https://komarev.com/ghpvc/?username=myexistences&repo=WindowCaptureHider&label=Views&color=blue&style=flat)-->
+[![License](https://img.shields.io/badge/License-MIT-blue?style=flat&logo=opensourceinitiative&logoColor=white)](LICENSE)
+[![⭐ Stars](https://img.shields.io/github/stars/myexistences/WindowCaptureHider?style=flat&logo=github&logoColor=white&label=Stars)](https://github.com/myexistences/WindowCaptureHider/stargazers)
+[![Forks](https://img.shields.io/github/forks/myexistences/WindowCaptureHider?style=flat&logo=git&logoColor=white)](https://github.com/myexistences/WindowCaptureHider/network/members)
+[![🐞 Issues](https://img.shields.io/github/issues/myexistences/WindowCaptureHider?style=flat&logo=github&logoColor=white&label=Issues)](https://github.com/myexistences/WindowCaptureHider/issues)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Build](https://img.shields.io/github/actions/workflow/status/myexistences/WindowCaptureHider/ci.yml?branch=main)](../../actions)
-[![Issues](https://img.shields.io/github/issues/myexistences/WindowCaptureHider)](../../issues)
+
 
 **WindowCaptureHider** is a lightweight Windows DLL that hides top-level application windows from screen-capturing tools such as OBS, Snipping Tool, Microsoft Teams, Zoom, and others.  
 It uses the Windows API `SetWindowDisplayAffinity` to block these windows from being captured or recorded.
@@ -127,3 +131,4 @@ This project is primarily for personal use, but improvements or suggestions are 
 
 This project is licensed under the [GNU Affero General Public License v3.0
 ](LICENSE).
+
