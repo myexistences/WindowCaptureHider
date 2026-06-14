@@ -1,10 +1,10 @@
 # WindowCaptureHider
-<!--[![Build](https://img.shields.io/github/actions/workflow/status/myexistences/WindowCaptureHider/ci.yml?branch=main)](../../actions)
-![Views](https://komarev.com/ghpvc/?username=myexistences&repo=WindowCaptureHider&label=Views&color=blue&style=flat)-->
+<!--[![Build](https://img.shields.io/github/actions/workflow/status/rabbanyhmm/WindowCaptureHider/ci.yml?branch=main)](../../actions)
+![Views](https://komarev.com/ghpvc/?username=rabbanyhmm&repo=WindowCaptureHider&label=Views&color=blue&style=flat)-->
 [![License](https://img.shields.io/badge/License-MIT-blue?style=flat&logo=opensourceinitiative&logoColor=white)](LICENSE)
-[![⭐ Stars](https://img.shields.io/github/stars/myexistences/WindowCaptureHider?style=flat&logo=github&logoColor=white&label=Stars)](https://github.com/myexistences/WindowCaptureHider/stargazers)
-[![Forks](https://img.shields.io/github/forks/myexistences/WindowCaptureHider?style=flat&logo=git&logoColor=white)](https://github.com/myexistences/WindowCaptureHider/network/members)
-[![🐞 Issues](https://img.shields.io/github/issues/myexistences/WindowCaptureHider?style=flat&logo=github&logoColor=white&label=Issues)](https://github.com/myexistences/WindowCaptureHider/issues)
+[![⭐ Stars](https://img.shields.io/github/stars/rabbanyhmm/WindowCaptureHider?style=flat&logo=github&logoColor=white&label=Stars)](https://github.com/rabbanyhmm/WindowCaptureHider/stargazers)
+[![Forks](https://img.shields.io/github/forks/rabbanyhmm/WindowCaptureHider?style=flat&logo=git&logoColor=white)](https://github.com/rabbanyhmm/WindowCaptureHider/network/members)
+[![🐞 Issues](https://img.shields.io/github/issues/rabbanyhmm/WindowCaptureHider?style=flat&logo=github&logoColor=white&label=Issues)](https://github.com/rabbanyhmm/WindowCaptureHider/issues)
 
 
 
@@ -83,7 +83,7 @@ HMODULE hLib = LoadLibrary("WindowCaptureHider.dll");
 ### Build Instructions
 
 ```bash
-git clone https://github.com/myexistences/WindowCaptureHider.git
+git clone https://github.com/rabbanyhmm/WindowCaptureHider.git
 cd WindowCaptureHider
 cl /LD WindowCaptureHider.cpp /Fe:WindowCaptureHider.dll
 ```
